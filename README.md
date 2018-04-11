@@ -1,0 +1,210 @@
+<div>
+  <br/><br />
+  <p align="center">
+    <a href="https://irisplatform.io" target="_blank" align="center">
+        <img src="https://irisplatform.io/static/images/company/iris-by-bambuser-black-horisontal.png" width="280">
+    </a>
+  </p>
+  <br /><br />
+  <h1>React Native component for Iris broadcasting SDK</h1>
+</div>
+
+
+## Installation
+
+1. Add `react-native-bambuser-broadcaster` to your React Native project.  
+    `$ npm install react-native-bambuser-broadcaster --save`
+2. Download iOS & Android SDKs from https://dashboard.irisplatform.io/developer
+3. Android only: Head over to https://irisplatform.io/docs/broadcasting/howto/ and follow the Android sections _Add the broadcast SDK_ and _Add required Android app permissions and features_ for the Android project within your React Native project.  
+    **Important note:** when adding the libbambuser subproject, make sure you name it **libbambuser**, the React Native component will look for this subproject when building your React Native app.
+4. iOS only: Go to https://irisplatform.io/docs/broadcasting/howto/ and follow the iOS sections _Add dependencies_, _Add the broadcast SDK_ and _Enable camera and microphone access_ for the iOS project within your React Native project.
+
+### To automatically link this React Native module to your Xcode/Android projects run the following command:
+
+`$ react-native link react-native-bambuser-broadcaster`
+
+
+### If you want to manually add this React Native module to your Xcode/Android projects, then follow these steps:
+
+
+For Xcode:
+1. In Xcode, in the project navigator, right click the `Libraries` directory, and choose `Add Files to your [your projects name]`.
+2. Go to `node_modules` ➜ `react-native-bambuser-broadcaster` and add `RNBambuserBroadcaster.xcodeproj`.
+3. In Xcode, in the project navigator, select your project. Add `libRNBambuserBroadcaster.a` to your projects `Build Phases` ➜ `Link Binary With Libraries`.
+
+
+For Android:
+1. Open up `android/app/src/main/java/.../MainActivity.java`.
+2. Add `import com.bambuserbroadcaster.BambuserBroadcasterViewPackage` to the imports at the top.
+3. Add `new BambuserBroadcasterViewPackage()` to the return array in the `getPackages()` method. Your `getPackages()` method should look something like this:  
+    ```java
+    ...
+    @Override
+    protected List<ReactPackage> getPackages() {
+        return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new BambuserBroadcasterViewPackage()
+        );
+    }
+    ...
+    ```
+
+4. Add the following lines to `android/settings.gradle`:  
+    ```
+    include ':react-native-bambuser-broadcaster'
+    project(':react-native-bambuser-broadcaster').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bambuser-broadcaster/android')
+    ```
+
+5. Insert the following lines inside the dependencies block in `android/app/build.gradle`:  
+    ```
+    compile project(':react-native-bambuser-broadcaster')
+    ```
+
+
+## Usage
+
+In order to use this React Native component and our SDKs you'll need to generate an `applicationId` over at https://dashboard.irisplatform.io/developer.
+
+```javascript
+import RNBambuserBroadcaster from 'react-native-bambuser-broadcaster';
+
+...
+<RNBambuserBroadcaster applicationId={yourApplicationId} />
+```
+
+### Props
+```javascript
+applicationId: String
+// This applicationId should be fetched from your backend, rather than being hardcoded within your Reacty Native app. Read more here https://irisplatform.io/docs/key-concepts/application-id/
+
+audioQuality: String
+// RNBambuserBroadcaster.AUDIO_QUALITY.HIGH || RNBambuserBroadcaster.AUDIO_QUALITY.LOW || RNBambuserBroadcaster.AUDIO_QUALITY.MUTE
+
+author: String
+// Populates the author field in your broadcasts metadata.
+
+title: String
+// Populates the title field in your broadcasts metadata.
+
+customData: Object
+// Populates the customData field in your broadcasts metadata.
+
+privateMode: Boolean
+// Sets the next broadcasts to private.
+
+aspect: Object
+// By setting this prop you can modify the next broadcasts video aspect ratio. By setting {width: 1, height: 1} by example you get a square broadcast.
+
+localCopy: Boolean
+// If you set this to true the next broadcast will also be saved to the broadcasting device.
+
+localCopyFilename: String
+// If localCopy is true, then you can choose to set a specific name for the output file on this broadcast. If you don't provide a localCopyFilename then the output filename will have a automatically generated value.
+
+sendPosition: Boolean
+// This prop decides if the broadcasters location should be sent on the next broadcast.
+
+saveOnServer: Boolean
+// Set this prop to false if you do not want to save the next broadcast online.
+
+zoom: Number
+// Provide a value between 0(no zoom) and 1(maximum zoom).
+
+talkback: Boolean
+// Set false if you don't want to allow the talkback feature for your broadcast.
+
+onCurrentViewerCountUpdate: function(viewers)
+// Callback when current viewer count is updated.
+
+onTotalViewerCountUpdate: function(viewers)
+// Callback when total viewer count is updated.
+
+onMessageReceived: function(message)
+// Callback when the broadcaster recieves a chat message.
+
+onBroadcastStarted: function()
+// Callback when the broadcast started broadcasting.
+
+onBroadcastStopped: function()
+// Callback when the broadcast stopped broadcasting
+
+onBroadcastError: function(errorCode, errorMessage)
+// Callback when the broadcasters emits an error.
+
+onLocalCopySaved: function(filePath)
+// Callback when the local copy file is ready. At this point you should save the file at filePath to a more permanent storage location on your device.
+
+onBroadcastIdReceived: function(broadcastId)
+// Callback when the broadcaster recieves the broadcastId of the ongoing broadcast.
+
+onUplinkTestComplete: function(speed, recommendation)
+// Callback when the uplink speed test is finished. You can use our recommendation argument here if you want to disable broadcasting for users on bad networks here.
+
+onStreamHealthUpdate: function(streamhealth)
+// Callback when the streamhealth is updated.
+
+onPictureSaved: function(filePath)
+// Callback when the broadcaster have snapped an image of the ongoing broadcast. At this point you should save the file at filePath to a more permanent storage location on your device.
+
+onIncomingTalkbackRequest: function(talkbackMessage, talkbackCaller, talkbackId)
+// Callback when there's an incoming talkback request. The talkbackId is a required in order to accept/decline this talkback. 
+
+onTalkbackIdle: function()
+// Callback when the talkback session becomes idle.
+
+onTalkbackPlaying: function()
+// Callback when the talkback session is playing.
+
+onTalkbackAccepted: function()
+// Callback when the talkback reqeust is accepted
+
+onTalkbackNeedsAccept: function()
+// Callback when a talkback request is ready to be accepted.
+
+onCameraReady: function(hasZoom, hasTorch, canSwitchCamera)
+// Callback when the new camera is ready to be used. This is called when the broadcaster is first initiated and when the broadcaster switches between available cameras. Use the provided arguments to lock specific buttons which toggles torch, etc.
+```
+
+
+### Controlling the broadcaster
+By storing a reference to the RNBambuserBroadcaster you can call its functions.
+
+```javascript
+<RNBambuserBroadcaster
+ref={ref => {this.myBroadcasterRef = ref; }} applicationId={yourApplicationId} />
+```
+
+The available functions for RNBambuserBroadcaster can be called are:
+```javascript
+this.myBroadcasterRef.startBroadcast();
+// Call this when you want to start broadcasting. This will trigger the callback onBroadcastStarted when the broadcast starts.
+
+this.myBroadcasterRef.stopBroadcast();
+// Call this when you want to stop broadcasting. This will trigger the callback onBroadcastStopped when the broadcast stopped.
+
+this.myBroadcasterRef.switchCamera();
+// Call this when you want switch which camera your device is broadcasting from.
+
+this.myBroadcasterRef.takePicture();
+// Call this when you want to take a picture of ongoing broadcast. This will trigger the callback onPictureSaved when the image is ready.
+
+this.myBroadcasterRef.startUplinkTest();
+// Call this if you want to start an uplink test. When this is finished the callback of onUplinkTestComplete is invoked.
+
+this.myBroadcasterRef.acceptTalkback(talkbackId);
+// If you want to accept an incoming talkback request, then you call this function with the talkbackId provided from onIncomingTalkbackRequest.
+
+this.myBroadcasterRef.declineTalkback(talkbackId);
+// If you want to decline an incoming talkback request, then you call this function with the talkbackId provided from onIncomingTalkbackRequest.
+
+this.myBroadcasterRef.endTalkback();
+// If you want to end the currently ongoing talkback session, then call this function.
+```
+
+
+
+## More information
+
+* [Iris Platform Docs](https://irisplatform.io/docs)
+
+* [Bambuser AB](https://bambuser.com)

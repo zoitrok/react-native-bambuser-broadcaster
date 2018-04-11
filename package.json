@@ -1,0 +1,23 @@
+{
+  "name": "react-native-bambuser-broadcaster",
+  "version": "0.0.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "bambuser",
+    "iris",
+    "iris-platform",
+    "live",
+    "broadcasting",
+    "video"
+  ],
+  "author": "Peter Löfquist <pete@bambuser.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
