@@ -6,7 +6,7 @@
     </a>
   </p>
   <br /><br />
-  <h1>React Native component for Iris broadcasting SDK</h1>
+  <h1>React Native component for Bambuser broadcasting SDK</h1>
 </div>
 
 
@@ -14,10 +14,10 @@
 
 1. Add `react-native-bambuser-broadcaster` to your React Native project.  
     `$ npm install react-native-bambuser-broadcaster --save`
-2. Download iOS & Android SDKs from https://dashboard.irisplatform.io/developer
-3. Android only: Head over to https://irisplatform.io/docs/broadcasting/howto/ and follow the Android sections _Add the broadcast SDK_ and _Add required Android app permissions and features_ for the Android project within your React Native project.  
+2. Download iOS & Android SDKs from https://dashboard.bambuser.com/developer
+3. Android only: Head over to https://bambuser.com/docs/broadcasting/howto/ and follow the Android sections _Add the broadcast SDK_ and _Add required Android app permissions and features_ for the Android project within your React Native project.  
     **Important note:** when adding the libbambuser subproject, make sure you name it **libbambuser**, the React Native component will look for this subproject when building your React Native app.
-4. iOS only: Go to https://irisplatform.io/docs/broadcasting/howto/ and follow the iOS sections _Add dependencies_, _Add the broadcast SDK_ and _Enable camera and microphone access_ for the iOS project within your React Native project.
+4. iOS only: Go to https://bambuser.com/docs/broadcasting/howto/ and follow the iOS sections _Add dependencies_, _Add the broadcast SDK_ and _Enable camera and microphone access_ for the iOS project within your React Native project.
 
 ### To automatically link this React Native module to your Xcode/Android projects run the following command:
 
@@ -63,7 +63,7 @@ For Android:
 
 ## Usage
 
-In order to use this React Native component and our SDKs you'll need to generate an `applicationId` over at https://dashboard.irisplatform.io/developer.
+In order to use this React Native component and our SDKs you'll need to generate an `applicationId` over at https://bambuser.com.io/developer.
 
 ```javascript
 import RNBambuserBroadcaster from 'react-native-bambuser-broadcaster';
@@ -75,7 +75,7 @@ import RNBambuserBroadcaster from 'react-native-bambuser-broadcaster';
 ### Props
 ```javascript
 applicationId: String
-// This applicationId should be fetched from your backend, rather than being hardcoded within your Reacty Native app. Read more here https://irisplatform.io/docs/key-concepts/application-id/
+// This applicationId should be fetched from your backend, rather than being hardcoded within your Reacty Native app. Read more here https://bambuser.com/docs/key-concepts/application-id/
 
 audioQuality: String
 // RNBambuserBroadcaster.AUDIO_QUALITY.HIGH || RNBambuserBroadcaster.AUDIO_QUALITY.LOW || RNBambuserBroadcaster.AUDIO_QUALITY.MUTE
@@ -201,10 +201,9 @@ this.myBroadcasterRef.endTalkback();
 // If you want to end the currently ongoing talkback session, then call this function.
 ```
 
-
-
 ## More information
 
-* [Iris Platform Docs](https://irisplatform.io/docs)
+* [Bambuser Docs](https://bambuser.com/docs)
 
 * [Bambuser AB](https://bambuser.com)
+
