@@ -13,7 +13,7 @@
 ## Installation
 
 1. Add `react-native-bambuser-broadcaster` to your React Native project.  
-    `$ npm install react-native-bambuser-broadcaster --save`
+    `$ yarn add react-native-bambuser-broadcaster --save`
 2. Download iOS & Android SDKs from https://dashboard.bambuser.com/developer
 3. Android only: Head over to https://bambuser.com/docs/broadcasting/android/ and follow the Android sections [Add the broadcast SDK](https://bambuser.com/docs/broadcasting/android/#add-the-broadcast-sdk) and [Add required Android app permissions and features](https://bambuser.com/docs/broadcasting/android/#add-required-android-app-permissions-and-features) for the Android project within your React Native project.
     **Important note:** when adding the libbambuser subproject, make sure you name it **libbambuser**, the React Native component will look for this subproject when building your React Native app.
