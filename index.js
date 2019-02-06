@@ -17,7 +17,6 @@ const propTypes = {
   author: PropTypes.string,
   title: PropTypes.string,
   customData: PropTypes.string,
-  privateMode: PropTypes.bool,
   aspect: PropTypes.object,
   localCopy: PropTypes.bool,
   localCopyFilename: PropTypes.string,

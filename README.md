@@ -89,9 +89,6 @@ title: String
 customData: Object
 // Populates the customData field in your broadcasts metadata.
 
-privateMode: Boolean
-// Sets the next broadcasts to private.
-
 aspect: Object
 // By setting this prop you can modify the next broadcasts video aspect ratio. By setting {width: 1, height: 1} by example you get a square broadcast.
 

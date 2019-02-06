@@ -68,11 +68,6 @@ public class BambuserBroadcasterViewViewManager extends ViewGroupManager<Bambuse
         view.setCustomData(customData);
     }
 
-    @ReactProp(name = "privateMode")
-    public void setPrivateMode(BambuserBroadcasterView view, Boolean privateMode) {
-        view.setPrivateMode(privateMode);
-    }
-
     @ReactProp(name = "aspect")
     public void setAspect(BambuserBroadcasterView view, ReadableMap aspect) {
         view.setAspect(aspect);

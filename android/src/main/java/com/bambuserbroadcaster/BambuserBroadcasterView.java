@@ -36,7 +36,6 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
     String _author;
     String _title;
     String _customData;
-    Boolean _privateMode = false;
     ReadableMap _aspect;
     Boolean _localCopy = false;
     String _localCopyFilename;
@@ -166,13 +165,6 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
         }
     }
 
-    void setPrivateMode(Boolean privateMode) {
-        _privateMode = privateMode;
-        if (mBroadcaster != null) {
-            mBroadcaster.setPrivateMode(_privateMode);
-        }
-    }
-
     void setAspect(ReadableMap aspect) {
         if (aspect != null) {
             _aspect = aspect;
@@ -230,7 +222,6 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
             mBroadcaster.setAuthor(_author);
             mBroadcaster.setTitle(_title);
             mBroadcaster.setCustomData(_customData);
-            mBroadcaster.setPrivateMode(_privateMode);
             mBroadcaster.setSendPosition(_sendPosition);
             mBroadcaster.setSaveOnServer(_saveOnServer);
             if (_localCopy) {

@@ -16,7 +16,7 @@
   BOOL firstLayout;
 }
 
-@synthesize applicatonId, audioQuality, author, title, customData, privateMode, aspect, localCopy, localCopyFilename, sendPosition, saveOnServer, zoom, talkback, startBroadcast, stopBroadcast, startUplinkTest, takePicture, acceptTalkback, declineTalkback, endTalkback, switchCamera;
+@synthesize applicatonId, audioQuality, author, title, customData, aspect, localCopy, localCopyFilename, sendPosition, saveOnServer, zoom, talkback, startBroadcast, stopBroadcast, startUplinkTest, takePicture, acceptTalkback, declineTalkback, endTalkback, switchCamera;
 
 -(instancetype)init {
   self = [super init];
@@ -29,7 +29,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:)  name:UIDeviceOrientationDidChangeNotification object:nil];
     [self orientationChanged:nil];
     self.localCopy = NO;
-    self.privateMode = NO;
     self.sendPosition = NO;
     self.saveOnServer = YES;
     self.talkback = NO;
@@ -63,11 +62,6 @@
 -(void)setCustomData:(NSString *)_customData {
   customData = _customData;
   bambuserView.customData = _customData;
-}
-
--(void)setPrivateMode:(BOOL)_privateMode {
-  privateMode = _privateMode;
-  bambuserView.privateMode = _privateMode;
 }
 
 -(void)setAspect:(NSDictionary *)_aspect {
@@ -241,7 +235,6 @@
     } else if (self.localCopyFilename == nil && bambuserView.localFilename != nil) {
       bambuserView.localFilename = nil;
     }
-    bambuserView.privateMode = self.privateMode;
     bambuserView.sendPosition = self.sendPosition;
     bambuserView.saveOnServer = self.saveOnServer;
     bambuserView.talkback = self.talkback;

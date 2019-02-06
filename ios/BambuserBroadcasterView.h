@@ -22,7 +22,6 @@
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *customData;
-@property (nonatomic) BOOL privateMode;
 @property (nonatomic) NSDictionary *aspect;
 @property (nonatomic) BOOL localCopy;
 @property (nonatomic) NSString *localCopyFilename;

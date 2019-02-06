@@ -52,10 +52,6 @@ RCT_CUSTOM_VIEW_PROPERTY(customData, NSString, BambuserBroadcasterView) {
   [view setCustomData:json];
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(privateMode, BOOL, BambuserBroadcasterView) {
-  [view setPrivateMode:[json boolValue]];
-}
-
 RCT_CUSTOM_VIEW_PROPERTY(aspect, NSDictionary, BambuserBroadcasterView) {
   [view setAspect:json];
 }
