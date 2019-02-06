@@ -15,16 +15,16 @@
 1. Add `react-native-bambuser-broadcaster` to your React Native project.  
     `$ npm install react-native-bambuser-broadcaster --save`
 2. Download iOS & Android SDKs from https://dashboard.bambuser.com/developer
-3. Android only: Head over to https://bambuser.com/docs/broadcasting/howto/ and follow the Android sections _Add the broadcast SDK_ and _Add required Android app permissions and features_ for the Android project within your React Native project.  
+3. Android only: Head over to https://bambuser.com/docs/broadcasting/android/ and follow the Android sections [Add the broadcast SDK](https://bambuser.com/docs/broadcasting/android/#add-the-broadcast-sdk) and [Add required Android app permissions and features](https://bambuser.com/docs/broadcasting/android/#add-required-android-app-permissions-and-features) for the Android project within your React Native project.
     **Important note:** when adding the libbambuser subproject, make sure you name it **libbambuser**, the React Native component will look for this subproject when building your React Native app.
-4. iOS only: Go to https://bambuser.com/docs/broadcasting/howto/ and follow the iOS sections _Add dependencies_, _Add the broadcast SDK_ and _Enable camera and microphone access_ for the iOS project within your React Native project.
+4. iOS only: Go to https://bambuser.com/docs/broadcasting/ios-objc/ and follow the iOS sections [Install dependencies manually](https://bambuser.com/docs/broadcasting/ios-objc/#install-dependencies-manually), [Add the broadcast SDK](https://bambuser.com/docs/broadcasting/ios-objc/#add-the-broadcast-sdk) and [Enable camera and microphone access](https://bambuser.com/docs/broadcasting/ios-objc/#enable-camera-and-microphone-access) for the iOS project within your React Native project.
 
 ### To automatically link this React Native module to your Xcode/Android projects run the following command:
 
 `$ react-native link react-native-bambuser-broadcaster`
 
 
-### If you want to manually add this React Native module to your Xcode/Android projects, then follow these steps:
+### If you want to manually add this React Native module to your Xcode/Android Studio projects, then follow these steps:
 
 
 For Xcode:
@@ -63,7 +63,7 @@ For Android:
 
 ## Usage
 
-In order to use this React Native component and our SDKs you'll need to generate an `applicationId` over at https://bambuser.com.io/developer.
+In order to use this React Native component and our SDKs you'll need to generate an `applicationId` over at https://dashboard.bambuser.com/developer.
 
 ```javascript
 import RNBambuserBroadcaster from 'react-native-bambuser-broadcaster';
