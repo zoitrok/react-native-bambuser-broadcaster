@@ -41,6 +41,7 @@ const propTypes = {
   onTalkbackAccepted: PropTypes.func,
   onTalkbackNeedsAccept: PropTypes.func,
   onCameraReady: PropTypes.func,
+  onStartBroadcastNotReady: PropTypes.func,
   ...View.propTypes
 };
 
@@ -66,6 +67,7 @@ class RNBambuserBroadcaster extends React.Component {
     this._onTalkbackAccepted = this._onTalkbackAccepted.bind(this);
     this._onTalkbackNeedsAccept = this._onTalkbackNeedsAccept.bind(this);
     this._onCameraReady = this._onCameraReady.bind(this);
+    this._onStartBroadcastNotReady = this._onStartBroadcastNotReady.bind(this);
   }
 
   startBroadcast() {
@@ -218,6 +220,12 @@ class RNBambuserBroadcaster extends React.Component {
     }
   }
 
+  _onStartBroadcastNotReady() {
+    if (typeof this.props.onStartBroadcastNotReady === 'function') {
+      this.props.onStartBroadcastNotReady();
+    }
+  }
+
   render() {
     var modifiedProps = this.props;
     if (modifiedProps.customData) {
@@ -245,7 +253,8 @@ class RNBambuserBroadcaster extends React.Component {
         onTalkbackPlaying={this._onTalkbackPlaying}
         onTalkbackAccepted={this._onTalkbackAccepted}
         onTalkbackNeedsAccept={this._onTalkbackNeedsAccept}
-        onCameraReady={this._onCameraReady} />
+        onCameraReady={this._onCameraReady}
+        onStartBroadcastNotReady={this._onStartBroadcastNotReady} />
     );
   }
 }

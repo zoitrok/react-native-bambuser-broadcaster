@@ -217,7 +217,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
     }
 
     void startBroadcast() {
-        if (mBroadcaster != null) {
+        if (mBroadcaster != null && mBroadcaster.canStartBroadcasting()) {
             mBroadcaster.setAudioQuality(_audioQuality);
             mBroadcaster.setAuthor(_author);
             mBroadcaster.setTitle(_title);
@@ -242,6 +242,8 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
                 mBroadcaster.setTalkbackObserver(null);
             }
             mBroadcaster.startBroadcast();
+        } else {
+          sendEvent(event, "onStartBroadcastNotReady");
         }
     }
 

@@ -26,6 +26,7 @@ RCT_EXPORT_VIEW_PROPERTY(onTalkbackPlaying, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onTalkbackAccepted, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onTalkbackNeedsAccept, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onCameraReady, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onStartBroadcastNotReady, RCTBubblingEventBlock)
 
 -(UIView *)view {
   BambuserBroadcasterView *bambuserBroadcasterView = [[BambuserBroadcasterView alloc] init];

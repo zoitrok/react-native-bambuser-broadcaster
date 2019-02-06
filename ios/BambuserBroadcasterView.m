@@ -239,6 +239,8 @@
     bambuserView.saveOnServer = self.saveOnServer;
     bambuserView.talkback = self.talkback;
     [bambuserView startBroadcasting];
+  } else {
+    self.onStartBroadcastNotReady(nil);
   }
 }
 

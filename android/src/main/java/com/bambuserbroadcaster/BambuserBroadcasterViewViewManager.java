@@ -170,7 +170,8 @@ public class BambuserBroadcasterViewViewManager extends ViewGroupManager<Bambuse
             "onTalkbackPlaying", MapBuilder.of("registrationName", "onTalkbackPlaying"),
             "onTalkbackAccepted", MapBuilder.of("registrationName", "onTalkbackAccepted"),
             "onTalkbackNeedsAccept", MapBuilder.of("registrationName", "onTalkbackNeedsAccept"),
-            "onCameraReady", MapBuilder.of("registrationName", "onCameraReady")
+            "onCameraReady", MapBuilder.of("registrationName", "onCameraReady"),
+            "onStartBroadcastNotReady", MapBuilder.of("registrationName", "onStartBroadcastNotReady")
         ));
 
         return map;

@@ -160,6 +160,9 @@ onTalkbackNeedsAccept: function()
 
 onCameraReady: function(hasZoom, hasTorch, canSwitchCamera)
 // Callback when the new camera is ready to be used. This is called when the broadcaster is first initiated and when the broadcaster switches between available cameras. Use the provided arguments to lock specific buttons which toggles torch, etc.
+
+onStartBroadcastNotReady: function()
+// Callback when startBroadcast function was called by the broadcast SDK is not ready to broadcast just yet. At this point it might be a good to let the user try again.
 ```
 
 

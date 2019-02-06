@@ -56,5 +56,6 @@
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackAccepted;
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackNeedsAccept;
 @property (nonatomic, copy) RCTBubblingEventBlock onCameraReady;
+@property (nonatomic, copy) RCTBubblingEventBlock onStartBroadcastNotReady;
 
 @end
