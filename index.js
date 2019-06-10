@@ -16,7 +16,7 @@ const propTypes = {
   audioQuality: PropTypes.oneOf(Object.values(AUDIO_QUALITY)),
   author: PropTypes.string,
   title: PropTypes.string,
-  customData: PropTypes.string,
+  customData: PropTypes.object,
   aspect: PropTypes.object,
   localCopy: PropTypes.bool,
   localCopyFilename: PropTypes.string,
@@ -227,7 +227,7 @@ class RNBambuserBroadcaster extends React.Component {
   }
 
   render() {
-    var modifiedProps = this.props;
+    var modifiedProps = { ...this.props };
     if (modifiedProps.customData) {
       modifiedProps.customData = JSON.stringify(this.props.customData);
     }
