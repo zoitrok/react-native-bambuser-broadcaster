@@ -243,6 +243,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
             }
             mBroadcaster.startBroadcast();
         } else {
+          WritableMap event = new WritableNativeMap();
           sendEvent(event, "onStartBroadcastNotReady");
         }
     }
