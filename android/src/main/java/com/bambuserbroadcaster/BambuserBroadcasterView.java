@@ -366,7 +366,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
       public void onLocalMediaClosed(String filePath) {
           WritableMap event = new WritableNativeMap();
           event.putString("filePath", filePath);
-          sendEvent(event, "onPictureSaved");
+          sendEvent(event, "onLocalCopySaved");
       }
       @Override
       public void onLocalMediaError() {
