@@ -161,7 +161,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
     void setCustomData(String customData) {
         _customData = customData;
         if (mBroadcaster != null) {
-            mBroadcaster.setCustomData(_title);
+            mBroadcaster.setCustomData(_customData);
         }
     }
 
