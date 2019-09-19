@@ -195,7 +195,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
 
     void setZoom(float zoom) {
         _zoom = zoom;
-        if (mBroadcaster.getZoomRatios() != null) {
+        if (mBroadcaster != null && mBroadcaster.getZoomRatios() != null) {
             int minZoom = mBroadcaster.getZoomRatios().get(0);
             int maxZoom = mBroadcaster.getZoomRatios().get(mBroadcaster.getZoomRatios().size() - 1);
             float zoomCalc = ((maxZoom - minZoom) * _zoom) + minZoom;
@@ -349,6 +349,7 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
             event.putBoolean("hasTorch", mBroadcaster.hasTorch());
             event.putBoolean("canSwitchCamera", (mBroadcaster.getCameraCount() > 1));
             sendEvent(event, "onCameraReady");
+            setZoom(_zoom);
         }
         @Override
         public void onBroadcastInfoAvailable(String s, String s1) {
